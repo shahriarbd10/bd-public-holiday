@@ -66,9 +66,7 @@ export default function RootLayout({
             <p className="text-sm text-slate-500 dark:text-slate-400">
               © 2026 BD Holidays. All rights reserved.
             </p>
-            <p className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1">
-              Data sourced autonomously. Built with Next.js & Tailwind CSS.
-            </p>
+
           </div>
         </footer>
         </ThemeProvider>
