@@ -16,7 +16,7 @@ import {
 } from "date-fns";
 import { Moon, ChevronLeft, ChevronRight } from "lucide-react";
 
-export function CalendarGrid({ holidays, onSelectHoliday, currentMonth = new Date(2026, new Date().getMonth()) }: any) {
+export function CalendarGrid({ holidays, onSelectHoliday, currentMonth }: any) {
   // Convert holidays array into a localized Map for O(1) lookups
   const holidaysMap = useMemo(() => {
     const map = new Map<string, any[]>();
@@ -37,7 +37,7 @@ export function CalendarGrid({ holidays, onSelectHoliday, currentMonth = new Dat
     return map;
   }, [holidays]);
 
-  const [displayMonth, setDisplayMonth] = useState(currentMonth);
+  const [displayMonth, setDisplayMonth] = useState(currentMonth || new Date(2026, 2)); // Default to March 2026 to ensure SSR/Client consistency
 
   // Generate calendar grid dates
   const monthStart = startOfMonth(displayMonth);
@@ -62,7 +62,7 @@ export function CalendarGrid({ holidays, onSelectHoliday, currentMonth = new Dat
 
       days.push(
         <div
-          key={day.toString()}
+          key={day.getTime()}
           onClick={() => hasHoliday ? onSelectHoliday(dayHolidays, dateKey) : null}
           className={`
             relative p-2 min-h-[100px] border-b border-r border-slate-200 dark:border-slate-800 transition-colors
@@ -96,7 +96,7 @@ export function CalendarGrid({ holidays, onSelectHoliday, currentMonth = new Dat
       day = addDays(day, 1);
     }
     rows.push(
-      <div className="grid grid-cols-7" key={day.toString()}>
+      <div className="grid grid-cols-7" key={day.getTime()}>
         {days}
       </div>
     );

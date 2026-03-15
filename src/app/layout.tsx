@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${outfit.variable} font-sans antialiased text-slate-900 bg-slate-50 dark:text-slate-50 dark:bg-slate-950 transition-colors duration-300`}
       >
@@ -64,7 +64,7 @@ export default function RootLayout({
         <footer className="glass-panel border-t border-white/20 dark:border-white/5 mt-auto">
           <div className="container mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              © {new Date().getFullYear()} BD Holidays. All rights reserved.
+              © 2026 BD Holidays. All rights reserved.
             </p>
             <p className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1">
               Data sourced autonomously. Built with Next.js & Tailwind CSS.
