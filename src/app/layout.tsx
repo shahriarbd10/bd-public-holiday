@@ -52,7 +52,6 @@ export default function RootLayout({
             </div>
             <nav className="flex items-center gap-4 md:gap-8 font-medium text-xs md:text-sm">
               <a href="/" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Calendar</a>
-              <a href="/api/holidays" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">API</a>
               <ThemeToggle />
             </nav>
           </div>
